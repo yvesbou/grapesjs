@@ -1,4 +1,8 @@
-import myPlugin from '../modules/basicPlugin.js';
+// import myPlugin from '../modules/basicPlugin.js'; // <- local plugin
+// import myPlugin from "./node_modules/@yvesbou/smartcontract-ui-plugin" // <- not working
+// import myPlugin from "@yvesbou/smartcontract-ui-plugin" // <- not working
+import myPlugin from '../node_modules/@yvesbou/smartcontract-ui-plugin/src/index.js';
+import PluginSmartContractUI from '../modules/SmartcontractUI.js';
 
 var editor = grapesjs.init({
   showOffsets: 1,
@@ -9,7 +13,7 @@ var editor = grapesjs.init({
   fromElement: true,
   storageManager: { autoload: 0 },
   // selectorManager: { componentFirst: true, escapeName },
-  plugins: [myPlugin],
+  plugins: [myPlugin, PluginSmartContractUI],
 
   panels: {
     defaults: [
@@ -119,6 +123,10 @@ var editor = grapesjs.init({
   },
 });
 
+editor.on('load', function () {
+  var $ = grapesjs.$;
+});
+
 editor.BlockManager.add('h1-block', {
   label: 'Heading',
   content: '<h1>Put your title here</h1>',
@@ -129,6 +137,7 @@ editor.BlockManager.add('h1-block', {
 });
 
 var pn = editor.Panels;
+// $ on hover get => const $: JQueryStatic
 pn.addButton('options', {
   id: 'open-deploy',
   className: 'fa fa-rocket',

@@ -41,29 +41,32 @@ const PluginSmartContractUI = (editor) => {
                     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
                     </div>
                 </div>
-                <div class="modal" tabindex="-1" role="dialog" id="sc-ui-modal>
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Modal title</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <p>Modal body text goes here.</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        `
-    };
-
+                
+                </section>
+                `
+            };
+            
+            // second div inside section id="smart-contract-ui" removed because of missing modal in my canvas
+            // <div class="modal" tabindex="-1" role="dialog" id="sc-ui-modal>
+            //                 <div class="modal-dialog" role="document">
+            //                     <div class="modal-content">
+            //                     <div class="modal-header">
+            //                         <h5 class="modal-title">Modal title</h5>
+            //                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            //                         <span aria-hidden="true">&times;</span>
+            //                         </button>
+            //                     </div>
+            //                     <div class="modal-body">
+            //                         <p>Modal body text goes here.</p>
+            //                     </div>
+            //                     <div class="modal-footer">
+            //                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            //                         <button type="button" class="btn btn-primary">Save changes</button>
+            //                     </div>
+            //                     </div>
+            //                 </div>
+            // </div>
+            
     // Configurable properties
     const type = {
         isComponent: el =>  el.id === 'smart-contract-ui',
@@ -576,7 +579,8 @@ const PluginSmartContractUI = (editor) => {
         const address = props.contractAddress;
         const abi = JSON.parse(props.abi);
 
-        console.log($('#sc-ui-modal'));
+        // console.log($('#sc-ui-modal'));
+        console.log(document.getElementById("sc-ui-modal"));
 
 
         function renderInputs (item) {
